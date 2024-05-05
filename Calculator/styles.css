@@ -1,0 +1,11 @@
+.nav-list
+{
+flex-direction: column;
+display: flex;
+
+}
+.dropdown
+{
+flex: 1;
+
+}

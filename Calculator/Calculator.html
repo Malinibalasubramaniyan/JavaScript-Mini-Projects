@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    
+    <style>button{
+        width: 80px;
+        height: 80px;
+    border-radius: 50%;
+    border: none;
+    background-color:  rgb(73, 72, 72);
+    color: aliceblue;
+    font-size: 2rem;
+    font-style: bold;
+    cursor: pointer;
+
+}
+.button{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 7px;
+    margin: 2px;
+    padding-left: 5px;
+}
+        .calculator-body{
+        align-items: center;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: black;
+        border-radius: 15px;
+        max-width: 500px;
+        overflow: hidden;
+        
+    
+        }
+
+        #display{
+            width: 100%;
+            padding: 20px;
+            font-size: 4rem;
+            border: none;
+            color: rgb(55, 55, 56);
+            background-color:  rgb(227, 241, 206);
+            
+            
+           
+        }
+        body{
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: aliceblue;
+        }
+        button:hover{
+            background-color: rgb(109, 103, 103);
+        }
+
+        button:active{
+            background-color: rgb(163, 154, 154);
+        }
+        .operators{
+            background-color: rgb(238, 167, 15);
+            
+        }
+        
+        .operators:hover{
+            background-color:  rgb(236, 174, 39);
+        }
+
+        .operators:active{
+            background-color:  rgb(214, 189, 47);
+        }
+        h2{
+            color: black;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-weight: 300;
+            align-items: center;
+            justify-content: center;
+            font-style: bold;
+            background-color: aliceblue;
+            width: 100%;
+            height: 30px;
+
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="calculator-body" style="position: fixed;" al>
+       
+        
+    <input  id="display" readonly>
+    <div class="button">
+        <button class="operators" onclick="appendToDisplay('+')">+</button>
+        <button class="operators" onclick="appendToDisplay('-')">-</button>
+        <button class="operators" onclick="appendToDisplay('*')">*</button>
+        <button class="operators" onclick="appendToDisplay('/')">/</button>
+        <button class="operators" onclick="clearDisplay()">AC</button>
+        <button onclick="appendToDisplay('1')">1</button>
+        <button onclick="appendToDisplay('2')">2</button>
+        <button onclick="appendToDisplay('3')">3</button>
+        <button onclick="appendToDisplay('4')">4</button>
+        <button onclick="appendToDisplay('5')">5</button>
+        <button onclick="appendToDisplay('6')">6</button>
+        <button onclick="appendToDisplay('7')">7</button>
+        <button onclick="appendToDisplay('8')">8</button>
+        <button onclick="appendToDisplay('9')">9</button>
+        <button onclick="appendToDisplay('.')">.</button>
+        <button onclick="appendToDisplay('0')">0</button>
+        <button class="operators" onclick="calculate()">=</button>
+
+    </div>
+  
+    </div>
+    
+    <script>
+        const display = document.getElementById("display");
+        function appendToDisplay(input){
+            display.value += input;
+        }
+        function clearDisplay(){
+            display.value=" ";
+        }
+
+        function calculate(){
+            try {
+                display.value = eval(display.value);
+            } catch (error) {
+                display.value="Error";
+            }
+            
+        }
+    </script>
+</body>
+</html>
